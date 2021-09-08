@@ -2,11 +2,13 @@
 
 from cmd import Cmd
 from subprocess import Popen
+from shlex import quote
+
 import sys
 
 class JrnlShell(Cmd):
     def default(self, line):
-        cmd = 'jrnl %s' % (line)
+        cmd = 'jrnl %s' % (quote(line))
         process = Popen(cmd, shell=True)
         process.wait()
 
