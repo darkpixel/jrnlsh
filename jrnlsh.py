@@ -7,15 +7,18 @@ from shlex import quote
 import sys
 
 class JrnlShell(Cmd):
-    def default(self, line):
-        cmd = 'jrnl %s' % (quote(line))
-        process = Popen(cmd, shell=True)
+    def run_command(self, command):
+        process = Popen(command, shell=True)
         process.wait()
 
+    def default(self, line):
+        self.run_command('jrnl %s' % (quote(line)))
+
     def do_list(self, line):
-        cmd = 'jrnl -from today'
-        process = Popen(cmd, shell=True)
-        process.wait()
+        self.run_command('jrnl -from today')
+
+    def do_edit(self, line):
+        self.run_command('jrnl --edit')
 
     def do_quit(self, line):
         sys.exit(0)
