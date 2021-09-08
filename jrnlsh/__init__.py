@@ -24,6 +24,18 @@ class JrnlShell(Cmd):
     def do_quit(self, line):
         sys.exit(0)
 
+    def do_time(self, line):
+        run_command('timew start %s' % (quote(line)))
+
+    def do_start(self, line):
+        run_command('timew start %s' % (quote(line)))
+
+    def do_stop(self, line):
+        run_command('timew stop')
+
+    def do_fill(self, line):
+        run_command('timew start :fill %s' % (quote(line)))
+
     def do_exit(self, line):
         sys.exit(0)
 
