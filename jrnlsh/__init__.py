@@ -9,8 +9,14 @@ import sys
 
 class JrnlShell(Cmd):
     def run_command(self, command):
+        """ Run a command, wait for it to return. """
         process = Popen(command, shell=True)
         process.wait()
+
+    def check_command(self, command):
+        """ Check if a command exists, error if it does not exist. """
+        if shutil.which(command) is None:
+            raise(Exception('Unable to find \'%s\' command.' % (command)))
 
     def default(self, line):
         self.run_command('jrnl %s' % (quote(line)))
@@ -25,16 +31,20 @@ class JrnlShell(Cmd):
         sys.exit(0)
 
     def do_time(self, line):
-        run_command('timew start %s' % (quote(line)))
+        self.check_command('timew')
+        self.run_command('timew start %s' % (line))
 
     def do_start(self, line):
-        run_command('timew start %s' % (quote(line)))
+        self.check_command('timew')
+        self.run_command('timew start %s' % (line))
 
     def do_stop(self, line):
-        run_command('timew stop')
+        self.check_command('timew')
+        self.run_command('timew stop')
 
     def do_fill(self, line):
-        run_command('timew start :fill %s' % (quote(line)))
+        self.check_command('timew')
+        self.run_command('timew start :fill %s' % (line))
 
     def do_exit(self, line):
         sys.exit(0)
