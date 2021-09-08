@@ -1,4 +1,9 @@
 
+v0.0.4 / 2021-09-08
+==================
+
+  * Add some basic integrations for timewarrior
+
 0.0.3 / 2021-09-08
 ==================
 
