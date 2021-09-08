@@ -53,6 +53,12 @@ class JrnlShell(Cmd):
         self.check_command('timew')
         self.run_command('timew start :fill %s' % (line))
 
+    def do_status(self, line):
+        """ Show the current status from jrnl and timewarrior. """
+        self.check_command('timew')
+        self.run_command('jrnl -n 1')
+        self.run_command('timew')
+
     def do_exit(self, line):
         """ Exit. """
         sys.exit(0)
