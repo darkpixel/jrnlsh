@@ -1,8 +1,12 @@
 from setuptools import setup
 
 setup(name='jrnlsh',
-      version_format='{tag}.dev{commitcount}+{gitsha}',
-      setup_requires=['setuptools-git-version'],
+      version_config = {
+          "template": "{tag}",
+          "dev_template": "{tag}.{branch}+git.{sha}",
+          "dirty_template": "{tag}.{branch}+git.{sha}.dirty",
+      },
+      setup_requires=["setuptools-git-versioning"],
       description='A simple shell wrapper for jrnl',
       url='http://github.com/darkpixel/jrnlsh',
       author='Aaron C. de Bruyn',

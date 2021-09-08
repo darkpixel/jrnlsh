@@ -9,28 +9,19 @@ on:
     branches: [ main, develop ]
   pull_request:
     branches: [ main, develop ]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Build sdist
-        run: |
-          pip install build
-          python -m build
+      - name: Install build deps
+        run: pip install build
+      - name: Build
+        run: python -m build
       - name: pypi-publish
         uses: pypa/gh-action-pypi-publish@v1.4.2
         with:
-          user: darkpixel
+          user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
           verbose: true

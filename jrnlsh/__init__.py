@@ -4,6 +4,7 @@ from cmd import Cmd
 from subprocess import Popen
 from shlex import quote
 
+import shutil
 import sys
 
 class JrnlShell(Cmd):
@@ -30,6 +31,9 @@ class JrnlShell(Cmd):
         sys.exit(0)
 
 def run_cli():
+    if shutil.which('jrnl') is None:
+        raise(Exception('Unable to find \'jrnl\' command.  Is jrnl installed?'))
+
     prompt = JrnlShell()
     prompt.prompt = 'jrnl> '
     prompt.cmdloop()
