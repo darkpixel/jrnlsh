@@ -3,8 +3,8 @@ from setuptools import setup
 setup(name='jrnlsh',
       version_config = {
           "template": "{tag}",
-          "dev_template": "{tag}+{sha}",
-          "dirty_template": "{tag}+{sha}",
+          "dev_template": "{tag}.dev.{sha}",
+          "dirty_template": "{tag}.dev.{sha}",
       },
       setup_requires=["setuptools-git-versioning"],
       description='A simple shell wrapper for jrnl',
