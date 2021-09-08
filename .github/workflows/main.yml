@@ -24,10 +24,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Build sdist
-        run: |
-          pip install build
-          python -m build
+      - name: Install build deps
+        run: pip install build
+      - name: Build
+        run: python -m build
       - name: pypi-publish
         uses: pypa/gh-action-pypi-publish@v1.4.2
         with:
