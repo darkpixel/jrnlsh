@@ -6,18 +6,22 @@ import sys
 
 class JrnlShell(Cmd):
     def default(self, line):
-        print(line)
         cmd = 'jrnl %s' % (line)
         process = Popen(cmd, shell=True)
         process.wait()
 
-    def do_quit(self, arg):
+    def do_list(self, line):
+        cmd = 'jrnl -from today'
+        process = Popen(cmd, shell=True)
+        process.wait()
+
+    def do_quit(self, line):
         sys.exit(0)
 
-    def do_exit(self, arg):
+    def do_exit(self, line):
         sys.exit(0)
 
-    def do_EOF(self, arg):
+    def do_EOF(self, line):
         sys.exit(0)
 
 if __name__ == '__main__':
