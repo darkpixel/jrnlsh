@@ -1,12 +1,17 @@
 from setuptools import setup
+import os
+HERE = os.path.dirname(__file__)
+VERSION_FILE = os.path.join(HERE, 'VERSION.txt')
 
 setup(name='jrnlsh',
       version_config = {
-          "template": "{tag}",
-          "dev_template": "{tag}.dev.{sha}",
-          "dirty_template": "{tag}.dev.{sha}",
+          'count_commits_from_version_file': True,
+          'template': '{tag}',
+          'dev_template': '{tag}.dev.{ccount}',
+          'dirty_template': '{tag}.dev.{ccount}',
+          'version_file': VERSION_FILE,
       },
-      setup_requires=["setuptools-git-versioning"],
+      setup_requires=['setuptools-git-versioning'],
       description='A simple shell wrapper for jrnl',
       url='http://github.com/darkpixel/jrnlsh',
       author='Aaron C. de Bruyn',
