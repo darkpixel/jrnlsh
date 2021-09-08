@@ -29,7 +29,10 @@ class JrnlShell(Cmd):
     def do_EOF(self, line):
         sys.exit(0)
 
-if __name__ == '__main__':
+def run_cli():
     prompt = JrnlShell()
     prompt.prompt = 'jrnl> '
     prompt.cmdloop()
+
+if __name__ == '__main__':
+    run_cli()
