@@ -22,34 +22,43 @@ class JrnlShell(Cmd):
         self.run_command('jrnl %s' % (quote(line)))
 
     def do_list(self, line):
+        """ List today's jornal entries. """
         self.run_command('jrnl -from today')
 
     def do_edit(self, line):
+        """ Edit your journal. """
         self.run_command('jrnl --edit')
 
     def do_quit(self, line):
+        """ Exit """
         sys.exit(0)
 
     def do_time(self, line):
+        """ Start a new timewarrior entry. """
         self.check_command('timew')
         self.run_command('timew start %s' % (line))
 
     def do_start(self, line):
+        """ Start a new timewarrior entry. """
         self.check_command('timew')
         self.run_command('timew start %s' % (line))
 
     def do_stop(self, line):
+        """ Stop the running timewarrior entry. """
         self.check_command('timew')
         self.run_command('timew stop')
 
     def do_fill(self, line):
+        """ Start a new timewarrior entry and backfill it. """
         self.check_command('timew')
         self.run_command('timew start :fill %s' % (line))
 
     def do_exit(self, line):
+        """ Exit. """
         sys.exit(0)
 
     def do_EOF(self, line):
+        """ Exit. """
         sys.exit(0)
 
 def run_cli():
