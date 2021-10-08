@@ -40,6 +40,7 @@ Tracking stuff
   Current            10:14:14
   Total               1:04:14
 jrnl>
+```
 
 ## start (and time)
 Start a new timewarrior entry.  If there is a running timewarrior entry, it will be stopped and the new one will be started.  You can include tags after the start command.
