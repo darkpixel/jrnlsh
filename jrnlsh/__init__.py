@@ -48,6 +48,26 @@ class JrnlShell(Cmd):
         self.check_command('timew')
         self.run_command('timew stop')
 
+    def do_day(self, line):
+        """ So a summary of the timewarrior day. """
+        self.check_command('timew')
+        self.run_command('timew sum :day')
+
+    def do_week(self, line):
+        """ So a summary of the timewarrior day. """
+        self.check_command('timew')
+        self.run_command('timew sum :week')
+
+    def do_month(self, line):
+        """ So a summary of the timewarrior day. """
+        self.check_command('timew')
+        self.run_command('timew sum :month')
+
+    def do_year(self, line):
+        """ So a summary of the timewarrior day. """
+        self.check_command('timew')
+        self.run_command('timew sum :year')
+
     def do_fill(self, line):
         """ Start a new timewarrior entry and backfill it. """
         self.check_command('timew')
