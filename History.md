@@ -1,4 +1,11 @@
 
+v0.0.7 / 2023-01-12
+==================
+
+  * README improvements
+  * Add newly required long_description to setup.py for pypi deployment
+  * Add timewarrior summary commands
+
 v0.0.6 / 2021-09-10
 ==================
 
